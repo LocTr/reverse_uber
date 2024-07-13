@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:reverse_uber/router/router.dart';
-import 'package:reverse_uber/views/home.dart';
-import 'package:reverse_uber/views/menu/menu.dart';
 import 'package:reverse_uber/views/theme/app_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

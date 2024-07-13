@@ -1,85 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:reverse_uber/constants/hero_tag.dart';
-import 'package:reverse_uber/views/theme/app_colors.dart';
+import 'package:reverse_uber/views/messaging/components/chat_list_view.dart';
+import 'package:reverse_uber/views/messaging/components/chat_text_box.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MessagingView extends StatelessWidget {
+class MessagingView extends ConsumerWidget {
   const MessagingView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(),
-      body: SafeArea(
+      body: const SafeArea(
         child: Column(
           children: [
-            Expanded(
-                child: AnimatedList(
-              initialItemCount: 3,
-              itemBuilder: (context, index, animation) {
-                return ChatBubble();
-              },
-            )),
+            ChatListView(),
             Padding(
               padding: EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Hero(
-                    tag: HeroTag.messageBar,
-                    child: Material(
-                      type: MaterialType.transparency,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: AppColors.neutral,
-                          hintText: 'get recommendation',
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(100.0),
-                          ),
-                          suffixIcon: IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.send,
-                              )),
-                          contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 32),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              child: ChatTextBox(),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class ChatBubble extends StatelessWidget {
-  const ChatBubble({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-        decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor.withAlpha(200),
-          borderRadius: const BorderRadius.all(Radius.circular(16)),
-        ),
-        child: const Text(
-          'Hello world! \nMy name is Lokubot',
-          style: TextStyle(
-            color: Colors.white,
-          ),
         ),
       ),
     );
