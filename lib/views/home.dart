@@ -37,7 +37,7 @@ class HomeView extends StatelessWidget {
                         enableInteractiveSelection: false,
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: AppColors.neutral,
+                          fillColor: AppColors.surface,
                           hintText: 'get recommendation',
                           border: OutlineInputBorder(
                             borderSide: BorderSide.none,

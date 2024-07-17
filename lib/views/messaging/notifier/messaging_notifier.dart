@@ -9,7 +9,7 @@ class MessagingNotifier extends _$MessagingNotifier {
   ChatRepository get repo => ref.watch(chatRepositoryProvider);
 
   @override
-  Raw<Stream<ChatMessage>> build() {
+  Stream<ChatMessage> build() {
     return repo.messageStream;
   }
 

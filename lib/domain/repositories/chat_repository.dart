@@ -45,6 +45,7 @@ class ChatRepositoryDefault implements ChatRepository {
       sendAt: DateTime.now(),
     );
     _chatStream.add(message);
+    _getResponseMessage(message);
     return;
   }
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:reverse_uber/constants/app_image.dart';
 import 'package:reverse_uber/views/home.dart';
 import 'package:reverse_uber/views/theme/app_colors.dart';
 
@@ -26,7 +25,7 @@ class MenuView extends StatelessWidget {
                   TextField(
                     decoration: InputDecoration(
                         filled: true,
-                        fillColor: AppColors.neutral,
+                        fillColor: AppColors.surface,
                         hintText: 'get recommendation',
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none,

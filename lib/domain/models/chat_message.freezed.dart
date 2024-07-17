@@ -113,9 +113,10 @@ class __$$ChatMessageImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChatMessageImpl implements _ChatMessage {
+class _$ChatMessageImpl extends _ChatMessage {
   const _$ChatMessageImpl(
-      {required this.owner, required this.text, required this.sendAt});
+      {required this.owner, required this.text, required this.sendAt})
+      : super._();
 
   @override
   final MessageOwner owner;
@@ -149,11 +150,12 @@ class _$ChatMessageImpl implements _ChatMessage {
       __$$ChatMessageImplCopyWithImpl<_$ChatMessageImpl>(this, _$identity);
 }
 
-abstract class _ChatMessage implements ChatMessage {
+abstract class _ChatMessage extends ChatMessage {
   const factory _ChatMessage(
       {required final MessageOwner owner,
       required final String text,
       required final DateTime sendAt}) = _$ChatMessageImpl;
+  const _ChatMessage._() : super._();
 
   @override
   MessageOwner get owner;
